@@ -1,10 +1,14 @@
-
+import CreateUserForm from "./Components/UsersComponents/CreateUserForm";
 
 function App() {
 
-
   return (
-    <h1>Hello World!</h1>
+    <main className="space-y-16 py-16">
+      <CreateUserForm/>
+
+
+      
+    </main>
   );
 }
 

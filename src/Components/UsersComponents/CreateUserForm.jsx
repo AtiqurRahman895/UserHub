@@ -21,6 +21,7 @@ function CreateUserForm({refetch}) {
   const handleSubmit= async (e) => {
     e.preventDefault();
     try {
+      console.log(form)
       await normalAxios.post("/api/users", form)
       refetch()
       setForm({
@@ -105,7 +106,7 @@ function CreateUserForm({refetch}) {
                   Pick gender
                 </option>
                 <option value={"male"}>Male</option>
-                <option value={"Female"}>Female</option>
+                <option value={"female"}>Female</option>
               </select>
             </label>
 

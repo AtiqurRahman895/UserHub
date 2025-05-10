@@ -1,7 +1,9 @@
 import UseGetDateInYMDFormat from "../../Hooks/UseGetDateInYMDFormat";
+import UseUrlQuery from "../../Hooks/UseUrlQuery";
 
 const UsersTable = ({loading, users=[]}) => {
   const YDMformatDate= UseGetDateInYMDFormat()
+  const {pageNo} = UseUrlQuery();
 
   return (
       <div className="overflow-x-auto bg-custom-primary rounded-lg p-4">
@@ -26,7 +28,7 @@ const UsersTable = ({loading, users=[]}) => {
                 <tbody>
                 {users.map((user, index) => (
                     <tr key={index} className="border-t text-sm text-white border-gray-400 [&>*]:px-6 [&>*]:py-3">
-                        <td>{index+1}</td>
+                        <td>{`${pageNo===1?index+1===10?pageNo:'':index+1===10?pageNo:pageNo-1}${index+1===10?0:index+1}`}</td>
                         <td>{user.firstName}</td>
                         <td>{user.lastName}</td>
                         <td>{YDMformatDate(0, user.dateOfBirth)}</td>
@@ -43,3 +45,4 @@ const UsersTable = ({loading, users=[]}) => {
 };
 
 export default UsersTable;
+
